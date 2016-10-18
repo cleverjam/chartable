@@ -1,0 +1,22 @@
+{
+  "name": "chartable",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Jaime Liz <lizjaime@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/cleverjam/chartable",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "^0.97.7",
+    "requirejs": "^2.3.2",
+    "chart.js": "chartjs#^2.3.0"
+  }
+}
