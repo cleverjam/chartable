@@ -17,6 +17,7 @@
   "dependencies": {
     "materialize": "^0.97.7",
     "requirejs": "^2.3.2",
-    "chart.js": "chartjs#^2.3.0"
+    "chart.js": "chartjs#^2.3.0",
+    "handsontable": "^0.28.4"
   }
 }
