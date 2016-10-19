@@ -2,9 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Chartable</title>
+    <script data-main="js/main" src="lib/requirejs/require.js"></script>
+    <link rel="stylesheet" href="lib/materialize/dist/css/materialize.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="lib/handsontable/dist/handsontable.css"/>
+
 </head>
 <body>
+<div class="navbar-fixed">
+    <nav class="light-blue darken-2">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo left">Chartable</a>
+                <ul id="typeSelector" class="right">
+                    <li><a href=""><i class="material-icons">assessment</i></a></li>
+                    <li><a href=""><i class="material-icons">donut_small</i></a></li>
+                </ul>
+            </div>
 
+        </div>
+    </nav>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card ">
+                <div class="card-content">
+                    <div id="table"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="card ">
+                <div class="card-content">
+                    <div id="table"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
