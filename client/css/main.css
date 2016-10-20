@@ -1,3 +1,8 @@
 .prevent-click {
     pointer-events: none;
 }
+
+/*.table {*/
+    /*width: 100%;*/
+    /*overflow: hidden;*/
+/*}*/
