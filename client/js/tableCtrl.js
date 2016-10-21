@@ -5,19 +5,25 @@
 define("tableCtrl", ["handsontable"], function (Handsontable) {
 
     console.log("tableCtrl loaded...");
+    var table;
+
 
     return {
-        load: function (container, data, listener) {
-            return new Handsontable(container, {
+        load: function (container, data) {
+            return table = new Handsontable(container, {
                 data: data,
                 stretchH: "all",
+                maxRows: 10,
                 rowHeaders: true,
                 colHeaders: true,
                 dropdownMenu: true,
-                afterChange: function (changes, source) {
-                    listener(changes, source);
-                }
+                contextMenu: true
             });
+        },
+        registerHooks: function (event, cb) {
+            if(table){
+                table.addHook(event, cb)
+            }
         }
     }
 
