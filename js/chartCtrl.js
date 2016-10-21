@@ -99,10 +99,10 @@ define("chartCtrl",[],function () {
 
     return {
         reload: function (data, type) {
-            console.log(data);
             cache.chartObj.destroy();
+            cache.type = type || cache.type;
             return cache.chartObj = new Chart(cache.ctx, {
-                type: type || cache.type,
+                type: cache.type,
                 data: buildData(data, type || cache.type), //data from the table.
                 fill: false,
                 options: {
