@@ -26,7 +26,7 @@
 // }]
 define("chartCtrl",[],function () {
     console.log("chartCtrl loaded...");
-
+    var cache = {};
 
     function addStyles(ds, type) {
         if (type == "line") {
@@ -98,8 +98,30 @@ define("chartCtrl",[],function () {
     }
 
     return {
+        reload: function (data, type) {
+            console.log(data);
+            cache.chartObj.destroy();
+            return cache.chartObj = new Chart(cache.ctx, {
+                type: type || cache.type,
+                data: buildData(data, type || cache.type), //data from the table.
+                fill: false,
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+
+
+        },
         load: function (ctx, type, data) {
-            return new Chart(ctx, {
+            cache.ctx = ctx;
+            cache.type = type;
+            return cache.chartObj = new Chart(ctx, {
                 type: type,
                 data: buildData(data, type), //data from the table.
                 fill: false,
