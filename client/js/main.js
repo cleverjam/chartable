@@ -21,6 +21,7 @@ require.config({
 define(["handsontable", "chart", "handlers", "tableCtrl", "chartCtrl"], function (Handsontable, Chart, handlers, tableCtrl, chartCtrl) {
     var ctx = document.getElementById("myChart");
     var container = document.getElementById('table'); // default container
+    var styleChart = "line";
     //initial data
     var data = [
         ["", "Honda", "Toyota", "Volkswagen", "Ford", "Ferrari"],
@@ -29,11 +30,14 @@ define(["handsontable", "chart", "handlers", "tableCtrl", "chartCtrl"], function
         ["2018", 30, 30, 15, 1, 2],
         ["2019", 15, 12, 22, 3, 6]
     ];
-    var chartObj = chartCtrl.load(ctx, "line", data);
-    tableCtrl.load(container,data, function (ch, src) {
-        //Handle this business
-        console.log(ch, src, chartObj)
-    });
+    //loading
+    var chartObj = chartCtrl.load(ctx, styleChart, data);
 
-
+    // load table and also change handler
+    var tableObj = tableCtrl.load(container,data);
+        console.log(tableObj);
+    //loading event handlers
+    tableCtrl.registerHooks("afterChange", handlers.tableChange(chartObj, tableObj));
+    tableCtrl.registerHooks("afterRemoveRow",handlers.tableRemove(chartObj, tableObj));
+    tableCtrl.registerHooks("afterRemoveCol",handlers.tableRemove(chartObj, tableObj));
 });
