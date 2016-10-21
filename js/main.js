@@ -21,7 +21,7 @@ require.config({
 define(["handsontable", "chart", "handlers", "tableCtrl", "chartCtrl"], function (Handsontable, Chart, handlers, tableCtrl, chartCtrl) {
     var ctx = document.getElementById("myChart");
     var container = document.getElementById('table'); // default container
-    var styleChart = "line";
+    var styleChart = "bar";
     //initial data
     var data = [
         ["", "Honda", "Toyota", "Volkswagen", "Ford", "Ferrari"],

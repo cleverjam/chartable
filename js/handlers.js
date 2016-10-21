@@ -11,8 +11,21 @@ define("handlers", ["chartCtrl"], function (chartCtrl) {
         return false;
     }
 
+
     return {
         tableChange: function (chartObj, tableObj) {
+            document.getElementById("typeSelector").addEventListener("click", (function (chartObj,tableObj) {
+                var state = "bar";
+                return function(e){
+                    console.log(e.target.id);
+                    if(state !== e.target.id) {
+                        // e.target.setAttribute("class",  e.target.getAttribute("class")+ " red-text text-lighten-2");
+                        chartCtrl.reload(tableObj.getData(), e.target.id);
+                        state = e.target.id;
+
+                    }
+                }
+            })(chartObj,tableObj));
             return function (change, src) {
                 console.log(change, src);
                 var col = change[0][1];
